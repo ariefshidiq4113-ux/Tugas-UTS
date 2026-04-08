@@ -1,0 +1,122 @@
+/* =========================================================
+   BeritaKu - Public Stylesheet
+   ========================================================= */
+
+:root {
+    --bs-font-sans-serif: 'Source Sans 3', system-ui, sans-serif;
+    --brand-red: #e8192c;
+    --brand-dark: #1a1a2e;
+    --text-primary: #1a1a2e;
+    --text-muted: #6c757d;
+    --card-radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: var(--bs-font-sans-serif);
+    color: var(--text-primary);
+    background: #f5f5f7;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6,
+.navbar-brand, .section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.article-headline { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+
+/* Navbar */
+.navbar { z-index: 1030; }
+.navbar-brand { font-size: 1.8rem !important; font-family: 'Playfair Display', serif !important; letter-spacing: -0.5px; }
+
+/* Breaking Ticker */
+.breaking-ticker { font-size: .82rem; }
+.ticker-wrap { mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%); }
+.ticker-items { animation: tickerScroll 35s linear infinite; }
+@keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Cards */
+.card-hover { transition: transform .2s, box-shadow .2s; }
+.card-hover:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,.12) !important; }
+
+/* Hero */
+.hero-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.35) 50%, transparent 100%);
+}
+.display-title { font-size: clamp(1.1rem, 2.5vw, 1.6rem); }
+.text-white-75 { color: rgba(255,255,255,.75); }
+
+/* Section titles */
+.section-title { position: relative; }
+.section-title span { color: var(--brand-red); }
+.category-bar { display: inline-block; width: 4px; height: 1em; border-radius: 2px; margin-right: 8px; vertical-align: middle; }
+
+/* Popular rank badge */
+.popular-rank {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--brand-dark); color: white;
+    font-size: .72rem; font-weight: 700; flex-shrink: 0;
+}
+
+/* Category chip */
+.category-chip {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 10px; border-radius: 8px;
+    background: #f8f9fa; color: var(--text-primary);
+    transition: background .2s;
+}
+.category-chip:hover { background: #e9ecef; color: var(--text-primary); }
+.category-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* Line clamp utilities */
+.line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Article content */
+.article-content { font-size: 1.05rem; line-height: 1.85; }
+.article-content p { margin-bottom: 1.25rem; }
+.article-content h2, .article-content h3 { font-family: 'Playfair Display', serif; margin-top: 2rem; }
+.article-content img { max-width: 100%; border-radius: var(--card-radius); }
+.article-content blockquote {
+    border-left: 4px solid var(--brand-red);
+    padding: .75rem 1.25rem;
+    background: #fff8f8; border-radius: 0 8px 8px 0;
+    margin: 1.5rem 0; font-style: italic;
+}
+
+/* CTA card */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+}
+
+/* Object-fit helper */
+.object-fit-cover { object-fit: cover; }
+
+/* Btn xs */
+.btn-xs { font-size: .75rem; padding: .15rem .4rem; }
+
+/* Pagination active */
+.pagination .page-item.active .page-link {
+    background-color: var(--brand-dark);
+    border-color: var(--brand-dark);
+}
+.pagination .page-link { color: var(--brand-dark); }
+
+/* Smooth transitions */
+a, button { transition: all .18s ease; }
+
+/* Image placeholder */
+img[src*="placeholder"] { background: #e9ecef; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section { padding: .75rem 0; }
+    .sticky-top { position: relative !important; top: 0 !important; }
+}
